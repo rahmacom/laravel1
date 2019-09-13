@@ -25,4 +25,25 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function myCaptcha()
+    {
+        return view('myCaptcha');
+    }
+
+    
+    public function myCaptchaPost(Request $Request)
+    {
+        Request()->validate([
+            'email'=> 'required|email',
+            'password' => 'required',
+            'captcha' => 'required|captcha'
+        ],
+        ['captcha.captcha'=>'Invalid captcha code.']);
+        dd("you are here :) .");
+    }
+
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
 }

@@ -43,7 +43,7 @@
                             <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('phone_number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone_number" type="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number">
+                                <input id="phone_number" type="telp" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number">
 
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
@@ -76,18 +76,21 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('CAPTCHA') }}</label>
-
+                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('Captcha') }}</label>                     
                             <div class="col-md-6">
-                                {!! Captcha::img() !!}
+                                <div class="captcha">
+                                    <img src="{{captcha_src('flat')}}" onclick="this.src='/captcha/flat?'+Math.random()" id="captchaCode" alt="" class="captcha">
+                                        <a rel="nofollow" href="javascript:;" onclick="document.getElementById('captchaCode').src='captcha/flat?'+Math.random()" class="refresh">
+                                                              
+                                          <button type="button" class="btn btn-info btn-refresh">Refresh></button>
+                                        </a>
+                                    </a>
+                                    <input id="captcha" type="captcha" class="form-control @error('captcha') is-invalid @enderror" name="captcha" required placeholder="Enter Captcha">
+                                
+                            </div>
                             </div>
                         </div>
-
-                         <div class="form-group row">
-                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('captcha') }}</label>
-
                             <div class="col-md-6">
-                                <input id="captcha" type="captcha" class="form-control @error('captcha') is-invalid @enderror" name="captcha" required autocomplete="captcha">
 
                                 @error('captcha')
                                     <span class="invalid-feedback" role="alert">

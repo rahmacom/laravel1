@@ -15,7 +15,7 @@
                             <label for="phone_number" class="col-md-4 col-form-label text-md-right">{{ __('phone_number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone_number" type="email" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
+                                <input id="phone_number" type="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number" autofocus>
 
                                 @error('phone_number')
                                     <span class="invalid-feedback" role="alert">
@@ -38,34 +38,29 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('CAPTCHA') }}</label>
 
-                            <div class="col-md-6">
-                                {!! Captcha::img() !!}
+                                   
+                        <div class="form-group row">
+                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('Captcha') }}</label>                     
+                                <div class="col-md-6">
+                                     <div class="captcha">
+                                        <img src="{{captcha_src('flat')}}" onclick="this.src='/captcha/flat?'+Math.random()" id="captchaCode" alt="" class="captcha">
+                                            <a rel="nofollow" href="javascript:;" onclick="document.getElementById('captchaCode').src='captcha/flat?'+Math.random()" class="refresh">
+                                                                      
+                                            <button type="button" class="btn btn-info btn-refresh">Refresh></button>
+                                            </a>
+                                            </a>
+                                            <input id="captcha" type="captcha" class="form-control @error('captcha') is-invalid @enderror" name="captcha" required placeholder="Enter Captcha">
+                                </div>
                             </div>
                         </div>
-
-                         <div class="form-group row">
-                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('captcha') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="captcha" type="captcha" class="form-control @error('captcha') is-invalid @enderror" name="captcha" required autocomplete="captcha">
-
-                                @error('captcha')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ ('Remember Me') }}
                                     </label>
                                 </div>
                             </div>
@@ -79,7 +74,7 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ ('Forgot Your Password?') }}
                                     </a>
                                 @endif
                             </div>

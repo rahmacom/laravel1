@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -39,24 +40,23 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-     protected function validator(array $data)
+    public function username()
     {
-        return Validator::make($data, [
-            'captcha' => ['required', 'captcha'],
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone_number' => ['required', 'string', 'max:50', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        return 'phone_number';
     }
 
-     protected function create(array $data)
+    protected function credentials(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'phone_number' => $data['phone_number'],
-            'password' => Hash::make($data['password']),
+        return $request->only($this->username(), 'password');
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+            'captcha' => ['required', 'captcha'],
+            
         ]);
     }
 }

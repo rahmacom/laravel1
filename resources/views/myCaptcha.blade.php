@@ -102,8 +102,5 @@ $(".btn-refresh").click(function(){
   });
 });
 
-
 </script>
-
-
 </html>

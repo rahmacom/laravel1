@@ -19,18 +19,26 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
 Route::get('/home','HomeController@index')->name('home');
-
-Auth::routes();
 
 Route::get('my-Captcha','HomeController@myCaptcha')->name('myCaptcha');
 
-Auth::routes();
-
 Route::post('my-Captcha','HomeController@myCaptchaPost')->name('myCaptcha.Post');
 
-Auth::routes();
-
 Route::get('refresh_Captcha','HomeController@refresh_Captcha')->name('refresh_Captcha');
+
+Route::resource('kategori_artikel','KategoriArtikelController');
+
+Route::resource('kategori_berita','KategoriBeritaController');
+
+Route::resource('kategori_galeri','KategoriGaleriController');
+
+Route::resource('kategori_pengumuman','KategoriPengumumanController');
+
+Route::resource('artikel','ArtikelController');
+
+Route::resource('berita','BeritaController');
+
+Route::resource('galeri','GaleriController');
+
+Route::resource('pengumuman','PengumumanController');

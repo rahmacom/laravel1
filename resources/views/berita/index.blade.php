@@ -1,3 +1,16 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('berita') }}</div>
+
+                <div class="card-body">
+
+<a class="btn btn-primary" href="{{ route('berita.create') }}">Tambah Data</a>
+
 <table border="1">
     <tr style="background-color: pink;" >
         <th> ID </th>
@@ -17,3 +30,9 @@
 
 
 @endforeach
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

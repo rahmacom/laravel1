@@ -26,7 +26,7 @@ class KategoriArtikelController extends Controller
      */
     public function create()
     {
-        //
+        return view('kategori_artikel.create');
     }
 
     /**
@@ -37,7 +37,11 @@ class KategoriArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+
+        kategori_artikel::create($input);
+
+        return redirect(route('kategori_artikel.index'));
     }
 
     /**
@@ -46,9 +50,11 @@ class KategoriArtikelController extends Controller
      * @param  \App\kategori_artikel  $kategori_artikel
      * @return \Illuminate\Http\Response
      */
-    public function show(kategori_artikel $kategori_artikel)
+    public function show($id)
     {
-        //
+        $kategori_artikel=kategori_artikel::find($id);
+
+        return view('kategori_artikel.show', compact('kategori_artikel'));
     }
 
     /**

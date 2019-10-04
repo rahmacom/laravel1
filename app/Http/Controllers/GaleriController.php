@@ -26,7 +26,8 @@ class GaleriController extends Controller
      */
     public function create()
     {
-        //
+        $kategori_galeri = kategori_berita::pluck('nama', 'id');
+        return view('galeri.create')->with('kategori_galeri', $kategori_galeri);
     }
 
     /**
@@ -37,7 +38,11 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+
+        berita::create($input);
+
+        return redirect(route('galeri.index'));
     }
 
     /**
@@ -46,9 +51,12 @@ class GaleriController extends Controller
      * @param  \App\galeri  $galeri
      * @return \Illuminate\Http\Response
      */
-    public function show(galeri $galeri)
+    public function show($id)
     {
-        //
+
+        $berita=berita::find($id);
+
+        return view('galeri.show', compact('galeri'));
     }
 
     /**

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\galeri;
+use App\kategori_galeri;
+
 use Illuminate\Http\Request;
 
 class GaleriController extends Controller
@@ -26,7 +28,7 @@ class GaleriController extends Controller
      */
     public function create()
     {
-        $kategori_galeri = kategori_berita::pluck('nama', 'id');
+        $kategori_galeri = kategori_galeri::pluck('nama','id');
         return view('galeri.create')->with('kategori_galeri', $kategori_galeri);
     }
 
@@ -40,7 +42,7 @@ class GaleriController extends Controller
     {
         $input=$request->all();
 
-        berita::create($input);
+        galeri::create($input);
 
         return redirect(route('galeri.index'));
     }
@@ -54,7 +56,7 @@ class GaleriController extends Controller
     public function show($id)
     {
 
-        $berita=berita::find($id);
+        $galeri=galeri::find($id);
 
         return view('galeri.show', compact('galeri'));
     }

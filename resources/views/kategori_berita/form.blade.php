@@ -29,14 +29,13 @@
     </div>
 </div>
 
-
 <div class="form-group row mb-0">
     <div class="col-md-8 offset-md-4">
         <button type="submit" class="btn btn-primary">
             {{ ('Save Data') }}
         </button>
 
-        <a href="{!! route('kategori_artikel.index') !!}" class="btn btn-danger">
+        <a href="{!! route('kategori_berita.index') !!}" class="btn btn-danger">
             {{ __('Cancel') }}
         </a>
     </div>

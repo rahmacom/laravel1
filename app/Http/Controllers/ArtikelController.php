@@ -29,7 +29,7 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        $kategori_artikel = kategori_artikel::pluck('nama', 'id');
+        $kategori_artikel = kategori_artikel::pluck('nama','id');
         return view('artikel.create')->with('kategori_artikel', $kategori_artikel);
     }
 

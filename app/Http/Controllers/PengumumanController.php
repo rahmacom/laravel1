@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\kategori_pengumuman;
 use App\pengumuman;
+use App\kategori_pengumuman;
+
 use Illuminate\Http\Request;
 
 class PengumumanController extends Controller
@@ -54,9 +55,11 @@ class PengumumanController extends Controller
      * @param  \App\pengumuman  $pengumuman
      * @return \Illuminate\Http\Response
      */
-    public function show(pengumuman $pengumuman)
+    public function show($id)
     {
-        //
+         $pengumuman=pengumuman::find($id);
+
+        return view('pengumuman.show', compact('pengumuman'));
     }
 
     /**

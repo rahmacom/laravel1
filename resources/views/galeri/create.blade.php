@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Create Berita') }}</div>
+                <div class="card-header">{{ __('Create Galeri') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('berita.store') }}">
-                        @include('berita.form')
+                    <form method="POST" action="{{ route('galeri.store') }}">
+                        @include('galeri.form')
                     </form>
                 </div>
             </div>

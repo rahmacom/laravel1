@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Kategori extends Model
 {
     //
+    protected $fillable = ['name', 'keterangan', 'users_id'];
+
     protected $table ='kategori';
     
-    protected $fillable = [
-        'name', 'keterangan', 'user_id',
-    ];
 }

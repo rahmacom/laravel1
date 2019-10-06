@@ -1,10 +1,10 @@
 @csrf
 
 <div class="form-group row">
-    <label for="judul" class="col-md-3 col-form-label text-md-right">{{ __('judul') }}</label>
+    <label for="nama" class="col-md-3 col-form-label text-md-right">{{ __('nama') }}</label>
 
     <div class="col-md-9">
-        <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required autofocus>
+        <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autofocus>
 
         @error('judul')
             <span class="invalid-feedback" role="alert">
@@ -15,12 +15,27 @@
 </div>
 
 <div class="form-group row">
-    <label for="isi" class="col-md-3 col-form-label text-md-right">{{ __('isi') }}</label>
+    <label for="keterangan" class="col-md-3 col-form-label text-md-right">{{ __('keterangan') }}</label>
 
     <div class="col-md-9">
-        <input id="isi" type="text" class="form-control @error('isi') is-invalid @enderror" name="isi" value="{{ old('isi') }}" required autofocus>
+        
+        {!! Form::textarea('keterangan',null, ['class'=>'form-control']); !!}
 
-        @error('isi')
+        @error('keterangan')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="path" class="col-md-3 col-form-label text-md-right">{{ __('path') }}</label>
+
+    <div class="col-md-9">
+        <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') }}" required autofocus>
+
+        @error('path')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
@@ -44,12 +59,12 @@
 </div>
 
 <div class="form-group row">
-    <label for="kategori_berita" class="col-md-3 col-form-label text-md-right">{{ __('kategori_berita') }}</label>
+    <label for="kategori_galeri" class="col-md-3 col-form-label text-md-right">{{ __('kategori_galeri') }}</label>
 
     <div class="col-md-9">
-        {!! Form::select('kategori_berita_id', $kategori_berita, null, ['class' => 'form-control']) !!}
+        {!! Form::select('kategori_galeri_id', $kategori_galeri, null, ['class' => 'form-control']) !!}
 
-        @error('kategori_berita')
+        @error('kategori_galeri')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
@@ -64,7 +79,7 @@
             {{ __('Save Data') }}
         </button>
 
-        <a href="{!! route('kategori_berita.index') !!}" class="btn btn-danger">
+        <a href="{!! route('kategori_galeri.index') !!}" class="btn btn-danger">
             {{ __('Cancel') }}
         </a>
     </div>
@@ -73,6 +88,6 @@
     <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
 
     <script> 
-         CKEDITOR.replace( 'isi' ); 
+         CKEDITOR.replace( 'keterangan' ); 
     </script>
 

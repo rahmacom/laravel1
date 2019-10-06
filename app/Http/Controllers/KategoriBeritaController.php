@@ -26,7 +26,6 @@ class KategoriBeritaController extends Controller
      */
     public function create()
     {
-
         return view('kategori_berita.create');
     }
 
@@ -38,7 +37,6 @@ class KategoriBeritaController extends Controller
      */
     public function store(Request $request)
     {
-
         $input=$request->all();
 
         kategori_berita::create($input);

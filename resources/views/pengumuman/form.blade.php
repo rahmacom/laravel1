@@ -17,11 +17,9 @@
 
 <div class="form-group row">
     <label for="isi" class="col-md-3 col-form-label text-md-right">{{ __('isi') }}</label>
-
     <div class="col-md-9">
 
         {!! Form::textarea('isi',null, ['class'=>'form-control']); !!}
-
 
         @error('isi')
             <span class="invalid-feedback" role="alert">
@@ -47,12 +45,12 @@
 </div>
 
 <div class="form-group row">
-    <label for="kategori_berita" class="col-md-3 col-form-label text-md-right">{{ __('kategori_artikel') }}</label>
+    <label for="kategori_pengumuman" class="col-md-3 col-form-label text-md-right">{{ __('kategori_pengumuman') }}</label>
 
     <div class="col-md-9">
-        {!! Form::select('kategori_artikel_id', $kategori_artikel, null, ['class' => 'form-control']) !!}
+        {!! Form::select('kategori_pengumuman_id', $kategori_pengumuman, null, ['class' => 'form-control']) !!}
 
-        @error('kategori_artikel')
+        @error('kategori_pengumuman')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
@@ -67,9 +65,11 @@
             {{ __('Save Data') }}
         </button>
 
-        <a href="{!! route('artikel.index') !!}" class="btn btn-danger">
+
+        <a href="{!! route('pengumuman.index') !!}" class="btn btn-danger">
             {{ __('Cancel') }}
         </a>
+
     </div>
 </div>
 
@@ -78,5 +78,3 @@
     <script> 
          CKEDITOR.replace( 'isi' ); 
     </script>
-
-

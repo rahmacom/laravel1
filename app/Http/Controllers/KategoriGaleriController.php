@@ -14,7 +14,7 @@ class KategoriGaleriController extends Controller
      */
     public function index()
     {
-        $kategori_galeri = kategori_galeri::all();
+        $kategori_galeri=kategori_galeri::all();
 
         return view('kategori_galeri.index')->with('kategori_galeri',$kategori_galeri);
     }

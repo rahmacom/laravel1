@@ -16,7 +16,7 @@
 
 
 <div class="form-group row">
-    <label for="user id" class="col-md-4 col-form-label text-md-right">{{ __('user id') }}</label>
+    <label for="users_id" class="col-md-4 col-form-label text-md-right">{{ __('users_id') }}</label>
 
     <div class="col-md-6">
         <input id="users_id" type="hidden" class="form-control @error('users_id') is-invalid @enderror" name="users_id" value="{{ Auth::id() }}" required autofocus>
@@ -33,10 +33,10 @@
 <div class="form-group row mb-0">
     <div class="col-md-8 offset-md-4">
         <button type="submit" class="btn btn-primary">
-            {{ ('Save Data') }}
+            {{ __('submit') }}
         </button>
 
-        <a href="{!! route('kategori_artikel.index') !!}" class="btn btn-danger">
+        <a href="{!! route('kategori_pengumuman.index') !!}" class="btn btn-danger">
             {{ __('Cancel') }}
         </a>
     </div>

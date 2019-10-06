@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\kategori_pengumuman;
 use App\pengumuman;
+use App\kategori_pengumuman;
+
 use Illuminate\Http\Request;
 
 class PengumumanController extends Controller

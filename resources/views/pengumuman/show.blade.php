@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="form-group row">
-                            <label for="judul" class="col-md-4 col-form-label text-md-left">nama</label>
+                            <label for="judul" class="col-md-4 col-form-label text-md-left">judul</label>
                             <label for="judul" class="col-md-6 col-form-label text-md-left">{{ $pengumuman->judul }}</label>
                     </div>
                 </div>

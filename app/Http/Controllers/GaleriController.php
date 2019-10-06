@@ -56,7 +56,7 @@ class GaleriController extends Controller
     public function show($id)
     {
 
-        $berita=galeri::find($id);
+        $galeri=galeri::find($id);
 
         return view('galeri.show', compact('galeri'));
     }

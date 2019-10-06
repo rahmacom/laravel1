@@ -16,7 +16,8 @@
         <th> ID </th>
         <th> JUDUL </th>
         <th> ISI </th>
-        <th> ID USER </th>
+        <th> USERS ID </th>
+        <th>TAMPILAN </th>
     </tr>
 
 @foreach ($artikel as $item)
@@ -26,6 +27,7 @@
         <td> {{ $item->judul}} </td>
         <td> {{ $item->isi}} </td>
         <td> {{ $item->users_id}} </td>
+        <td> <a class="btn btn-success" href="{{ route('artikel.show', $item->id) }}">view</a> </td>
     </tr>
 
 @endforeach

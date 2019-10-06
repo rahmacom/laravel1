@@ -17,8 +17,6 @@
         <th> NAMA </th>
         <th> ID USER </th>
         <th> CREATE </th>
-        <th> TAMPILAN </th>
-
     </tr>
 
 @foreach ($kategori_galeri as $item)
@@ -28,7 +26,6 @@
         <td> {{ $item->nama }} </td>
         <td> {{ $item->users_id }} </td>
         <td> {{ $item->created_at->format('d/m/Y M:i:s')}} </td>
-         <td> <a href="{{ route('kategori_galeri.show', $item->id) }}">view</a> </td>
     </tr>
 
 @endforeach

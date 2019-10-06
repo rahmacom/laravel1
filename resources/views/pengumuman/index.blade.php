@@ -9,7 +9,7 @@
 
                 <div class="card-body">
 
-<a class="btn btn-primary" href="{{ route('pengumuman.create') }}">Tambah Data</a>
+<a class="btn btn-primary" href="{{ route('pengumuman.create') }}">Add Data</a>
 
 <table border="1">
 	<tr style="background-color: pink;" >
@@ -17,6 +17,7 @@
 		<th> JUDUL </th>
 		<th> ISI </th>
 		<th> ID USER </th>
+		<th>TAMPILAN </th>
 	</tr>
 
 @foreach ($pengumuman as $item)
@@ -26,6 +27,7 @@
 		<td> {{ $item->judul }} </td>
 		<td> {{ $item->isi }} </td>
 		<td> {{ $item->users_id }} </td>
+		<td> <a class="btn btn-success" href="{{ route('pengumuman.show', $item->id) }}">view</a> </td>
 	</tr>
 
 @endforeach

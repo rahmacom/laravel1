@@ -2,9 +2,9 @@
 @csrf
 
 <div class="form-group row">
-    <label for="judul" class="col-md-4 col-form-label text-md-right">{{ __('judul') }}</label>
+    <label for="judul" class="col-md-3 col-form-label text-md-right">{{ __('judul') }}</label>
 
-    <div class="col-md-6">
+    <div class="col-md-9">
         <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required autofocus>
 
         @error('judul')
@@ -16,10 +16,12 @@
 </div>
 
 <div class="form-group row">
-    <label for="isi" class="col-md-4 col-form-label text-md-right">{{ __('isi') }}</label>
+    <label for="isi" class="col-md-3 col-form-label text-md-right">{{ __('isi') }}</label>
 
-    <div class="col-md-6">
-        <input id="isi" type="text" class="form-control @error('isi') is-invalid @enderror" name="isi" value="{{ old('isi') }}" required autofocus>
+    <div class="col-md-9">
+
+        {!! Form::textarea('isi',null, ['class'=>'form-control']); !!}
+
 
         @error('isi')
             <span class="invalid-feedback" role="alert">
@@ -31,9 +33,9 @@
 
 
 <div class="form-group row">
-    <label for="users_id" class="col-md-4 col-form-label text-md-right">{{ __('users_id') }}</label>
+    <label for="users_id" class="col-md-3 col-form-label text-md-right">{{ __('users_id') }}</label>
 
-    <div class="col-md-6">
+    <div class="col-md-9">
         <input id="users_id" type="hidden" class="form-control @error('users_id') is-invalid @enderror" name="users_id" value="{{ Auth::id() }}" required>
 
         @error('users_id')
@@ -45,9 +47,9 @@
 </div>
 
 <div class="form-group row">
-    <label for="kategori_artikel" class="col-md-4 col-form-label text-md-right">{{ __('kategori_artikel') }}</label>
+    <label for="kategori_berita" class="col-md-3 col-form-label text-md-right">{{ __('kategori_artikel') }}</label>
 
-    <div class="col-md-6">
+    <div class="col-md-9">
         {!! Form::select('kategori_artikel_id', $kategori_artikel, null, ['class' => 'form-control']) !!}
 
         @error('kategori_artikel')
@@ -60,7 +62,7 @@
 
 
 <div class="form-group row mb-0">
-    <div class="col-md-8 offset-md-4">
+    <div class="col-md-9 offset-md-3">
         <button type="submit" class="btn btn-primary">
             {{ __('Save Data') }}
         </button>
@@ -70,4 +72,11 @@
         </a>
     </div>
 </div>
+
+    <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
+
+    <script> 
+         CKEDITOR.replace( 'isi' ); 
+    </script>
+
 

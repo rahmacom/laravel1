@@ -8,14 +8,29 @@
                 <div class="card-header">{{ __('show') }}</div>
 
                 <div class="card-body">
-                    <div class="form-group row">
-                        <label for="users_id" class="col-md-4 col-form-label text-md-lesft">id</label>
-                        <label for="users_id" class="col-md-6 col-form-label text-md-left">{{ $berita->id }}</label>
+                     <div class="form-group row">
+                        <label for="id user" class="col-md-4 col-form-label text-md-lesft">id</label>
+                        <label for="id user" class="col-md-6 col-form-label text-md-left">{{ $berita->id }}</label>
                     </div>
 
                     <div class="form-group row">
-                            <label for="judul" class="col-md-4 col-form-label text-md-left">nama</label>
-                            <label for="judul" class="col-md-6 col-form-label text-md-left">{{ $berita-->judul }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-left">nama</label>
+                            <label for="name" class="col-md-6 col-form-label text-md-left">{{ $berita->nama }}</label>
+                    </div>
+
+                    <div class="form-group row">
+                            <label for="users_id" class="col-md-4 col-form-label text-md-left">users_id</label>
+                            <label for="users_id" class="col-md-6 col-form-label text-md-left">{{ $berita->users_id }}</label>
+                    </div>
+
+                    <div class="form-group row">
+                            <label for="create" class="col-md-4 col-form-label text-md-left">created_at</label>
+                            <label for="create" class="col-md-6 col-form-label text-md-left">{{ $berita->created_at }}</label>
+                    </div>
+
+                    <div class="form-group row">
+                            <label for="update" class="col-md-4 col-form-label text-md-left">updated_at</label>
+                            <label for="update" class="col-md-6 col-form-label text-md-left">{{ $berita->updated_at }}</label>
                     </div>
                 </div>
             </div>

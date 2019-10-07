@@ -27,7 +27,10 @@
         <td> {{ $item->judul}} </td>
         <td> {{ $item->isi}} </td>
         <td> {{ $item->users_id}} </td>
-        <td> <a class="btn btn-success" href="{{ route('artikel.show', $item->id) }}">view</a> </td>
+        <td>
+             <a class="btn btn-success" href="{{ route('artikel.show', $item->id) }}">view</a>
+             <a class="btn btn-into" href="{{ route('artikel.show', $item->id) }}">edit</a>
+        </td>  
     </tr>
 
 @endforeach

@@ -8,8 +8,7 @@
                 <div class="card-header">{{ __('Create Artikel') }}</div>
 
                 <div class="card-body">
-                    {!! Form::open(['route' => 'artikel.store', 'method' => 'POST']) !!}
-                        
+                    {!! Form::model($artikel, ['route' => ['artikel.update', $artikel->id],'method' => 'patch'])!!} 
                         @include('artikel.form')
                     {!! Form::close() !!}
                 </div>
@@ -18,7 +17,3 @@
     </div>
 </div>
 @endsection
-
-
-
-     

@@ -64,9 +64,19 @@ class KategoriBeritaController extends Controller
      * @param  \App\kategori_berita  $kategori_berita
      * @return \Illuminate\Http\Response
      */
-    public function edit(kategori_berita $kategori_berita)
+    public function edit($id)
     {
-        //
+        $kategori_berita=kategori_berita::find($id);
+
+        //$kategori_berita = kategori_berita::pluck('nama','id');
+
+        if (empty ($kategori_berita))
+        {
+            return redirect (route('kategori_berita.index'));
+        }
+
+        return view('kategori_berita.edit', compact('kategori_berita'));
+
     }
 
     /**
@@ -76,9 +86,12 @@ class KategoriBeritaController extends Controller
      * @param  \App\kategori_berita  $kategori_berita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, kategori_berita $kategori_berita)
+    public function update(Request $request,$id)
     {
-        //
+        $edit = $request->all();
+        kategori_berita::find($id)->update($edit);
+
+        return redirect(route('kategori_berita.index'));
     }
 
     /**

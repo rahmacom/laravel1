@@ -14,8 +14,13 @@
                     </div>
 
                     <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-left">nama</label>
-                            <label for="name" class="col-md-6 col-form-label text-md-left">{{ $berita->nama }}</label>
+                            <label for="judul" class="col-md-4 col-form-label text-md-left">judul</label>
+                            <label for="judul" class="col-md-6 col-form-label text-md-left">{{ $berita->judul }}</label>
+                    </div>
+
+                    <div class="form-group row">
+                            <label for="isi" class="col-md-4 col-form-label text-md-left">isi</label>
+                            <label for="isi" class="col-md-6 col-form-label text-md-left">{{ $berita->isi }}</label>
                     </div>
 
                     <div class="form-group row">

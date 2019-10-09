@@ -5,7 +5,7 @@
     <label for="judul" class="col-md-3 col-form-label text-md-right">{{ __('judul') }}</label>
 
     <div class="col-md-9">
-        {!! Form::text('judul', null,['class'=>" form-control",'required','autofocus']) !!} 
+        {!! Form::text('judul', null,['class'=>" form-control",'required','autofocus']) !!}
         @error('judul')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -18,7 +18,7 @@
     <label for="isi" class="col-md-3 col-form-label text-md-right">{{ __('isi') }}</label>
 
     <div class="col-md-9">
-        {!! Form::textarea('isi', null,['class'=>" form-control",'required','autofocus']) !!} 
+        {!! Form::textarea('isi', null,['class'=>" form-control",'required','autofocus']) !!}
 
         @error('isi')
             <span class="invalid-feedback" role="alert">
@@ -27,8 +27,6 @@
         @enderror
     </div>
 </div>
-
-
 
 <div class="form-group row">
     <label for="users_id" class="col-md-3 col-form-label text-md-right">{{ __('users_id') }}</label>
@@ -44,12 +42,8 @@
     </div>
 </div>
 
-
-
-
-
 <div class="form-group row">
-    <label for="kategori_berita" class="col-md-3 col-form-label text-md-right">{{ __('kategori_artikel') }}</label>
+    <label for="kategori_artikel" class="col-md-3 col-form-label text-md-right">{{ __('kategori_artikel') }}</label>
 
     <div class="col-md-9">
         {!! Form::select('kategori_artikel_id', $kategori_artikel, null, ['class' => 'form-control']) !!}
@@ -61,7 +55,6 @@
         @enderror
     </div>
 </div>
-
 
 <div class="form-group row mb-0">
     <div class="col-md-9 offset-md-3">
@@ -77,8 +70,8 @@
 
     <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
 
-    <script> 
-         CKEDITOR.replace( 'isi' ); 
+    <script>
+         CKEDITOR.replace( 'isi' );
     </script>
 
 

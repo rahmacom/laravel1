@@ -6,7 +6,7 @@
     <div class="col-md-9">
         <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autofocus>
 
-        @error('judul')
+        @error('nama')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
@@ -18,7 +18,7 @@
     <label for="keterangan" class="col-md-3 col-form-label text-md-right">{{ __('keterangan') }}</label>
 
     <div class="col-md-9">
-        
+
         {!! Form::textarea('keterangan',null, ['class'=>'form-control']); !!}
 
         @error('keterangan')
@@ -33,7 +33,7 @@
     <label for="path" class="col-md-3 col-form-label text-md-right">{{ __('path') }}</label>
 
     <div class="col-md-9">
-        <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') }}" required autofocus>
+        <input id="path" type="text" class="form-control @error('path') is-invalid @enderror" name="path" value="{{ old('path') }}">
 
         @error('path')
             <span class="invalid-feedback" role="alert">
@@ -87,7 +87,7 @@
 
     <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
 
-    <script> 
-         CKEDITOR.replace( 'keterangan' ); 
+    <script>
+         CKEDITOR.replace( 'keterangan' );
     </script>
 

@@ -67,9 +67,15 @@ class GaleriController extends Controller
      * @param  \App\galeri  $galeri
      * @return \Illuminate\Http\Response
      */
-    public function edit(galeri $galeri)
+    public function edit($id)
     {
-        //
+
+        $galeri=galeri::find($id);
+
+        $kategori_galeri =galeri::pluck('nama','id');
+
+
+        return view('galeri.edit', compact('galeri','kategori_galeri'));
     }
 
     /**
@@ -79,9 +85,12 @@ class GaleriController extends Controller
      * @param  \App\galeri  $galeri
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, galeri $galeri)
+    public function update(Request $request, $id)
     {
-        //
+        $edit = $request->all();
+        galeri::find($id)->update($edit);
+
+        return redirect(route('galeri.index'));
     }
 
     /**

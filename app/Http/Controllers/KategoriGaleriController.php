@@ -66,9 +66,19 @@ class KategoriGaleriController extends Controller
      * @param  \App\kategori_galeri  $kategori_galeri
      * @return \Illuminate\Http\Response
      */
-    public function edit(kategori_galeri $kategori_galeri)
+    public function edit($id)
     {
-        //
+        $kategori_galeri=kategori_galeri::find($id);
+
+        //$kategori_berita = kategori_berita::pluck('nama','id');
+
+        if (empty ($kategori_galeri))
+        {
+            return redirect (route('kategori_galeri.index'));
+        }
+
+        return view('kategori_galeri.edit', compact('kategori_galeri'));
+
     }
 
     /**
@@ -78,9 +88,12 @@ class KategoriGaleriController extends Controller
      * @param  \App\kategori_galeri  $kategori_galeri
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, kategori_galeri $kategori_galeri)
+    public function update(Request $request, $id)
     {
-        //
+        $edit = $request->all();
+        kategori_galeri::find($id)->update($edit);
+
+        return redirect(route('kategori_galeri.index'));
     }
 
     /**

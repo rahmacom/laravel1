@@ -58,7 +58,7 @@ class ArtikelController extends Controller
     {
         $artikel=artikel::find($id);
 
-        if (empty ($artikel)) 
+        if (empty ($artikel))
         {
             return redirect (route('artikel.index'));
         }
@@ -75,10 +75,10 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         $artikel=artikel::find($id);
-        
+
         $kategori_artikel = kategori_artikel::pluck('nama','id');
 
-        if (empty ($artikel)) 
+        if (empty ($artikel))
         {
             return redirect (route('artikel.index'));
         }

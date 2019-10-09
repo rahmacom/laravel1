@@ -7,7 +7,6 @@
             <div class="card">
                 <div class="card-header">{{ __('LIST KATEGORI ARTIKEL') }}</div>
 
-
                 <div class="card-body">
                     <a class="btn btn-primary" href="{{ route('kategori_artikel.create') }}">Add Data</a>
 
@@ -23,7 +22,7 @@
                                 <th> UPDATE </th>
                                 <th> TAMPILAN </th>
                             </thead>
-                            <tbody>
+                        <tbody>
 
 @foreach ($kategori_artikel as $item)
 
@@ -36,7 +35,7 @@
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-success" href="{{ route('kategori_artikel.show', $item->id) }}">view</a>
-                                        <a class="btn btn-info" href="{{ route('kategori_artikel.edit', $item->id) }}">edit</a> 
+                                        <a class="btn btn-info" href="{{ route('kategori_artikel.edit', $item->id) }}">edit</a>
                                     </div>
                                 </td>
                             </tr>
@@ -44,7 +43,7 @@
 @endforeach
                             </tbody>
                             </table>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>

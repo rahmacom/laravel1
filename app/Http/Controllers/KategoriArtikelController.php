@@ -66,15 +66,16 @@ class KategoriArtikelController extends Controller
     public function edit($id)
     {
         $kategori_artikel=kategori_artikel::find($id);
-        
-        $kategori_artikel = kategori_artikel::pluck('nama','id');
 
-        if (empty ($kategori_artikel)) 
+        //$kategori_artikel = kategori_artikel::pluck('nama','id');
+
+        if (empty ($kategori_artikel))
         {
             return redirect (route('kategori_artikel.index'));
         }
 
-        return view('kategori_artikel.edit', compact('kategori_artikel','kategori_artikel'));
+        return view('kategori_artikel.edit', compact('kategori_artikel'));
+
     }
 
     /**

@@ -44,12 +44,12 @@
 </div>
 
 <div class="form-group row">
-    <label for="kategori_berita" class="col-md-3 col-form-label text-md-right">{{ __('kategori_berita') }}</label>
+    <label for="berita" class="col-md-3 col-form-label text-md-right">{{ __('berita') }}</label>
 
     <div class="col-md-9">
-        {!! Form::select('kategori_berita_id', $kategori_berita, null, ['class' => 'form-control']) !!}
+        {!! Form::select('berita_id', $kategori_berita, null, ['class' => 'form-control']) !!}
 
-        @error('kategori_berita')
+        @error('berita')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
@@ -64,7 +64,7 @@
             {{ __('Save Data') }}
         </button>
 
-        <a href="{!! route('kategori_berita.index') !!}" class="btn btn-danger">
+        <a href="{!! route('berita.index') !!}" class="btn btn-danger">
             {{ __('Cancel') }}
         </a>
     </div>
@@ -72,7 +72,7 @@
 
     <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
 
-    <script> 
-         CKEDITOR.replace( 'isi' ); 
+    <script>
+         CKEDITOR.replace( 'isi' );
     </script>
 

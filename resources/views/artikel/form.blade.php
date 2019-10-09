@@ -5,9 +5,7 @@
     <label for="judul" class="col-md-3 col-form-label text-md-right">{{ __('judul') }}</label>
 
     <div class="col-md-9">
-        <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required autofocus>
-
-        {!! Form::text('judul', null,['class=>" form-control",'required','autofocus']); !!} 
+        {!! Form::text('judul', null,['class'=>" form-control",'required','autofocus']) !!} 
         @error('judul')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -16,6 +14,19 @@
     </div>
 </div>
 
+<div class="form-group row">
+    <label for="isi" class="col-md-3 col-form-label text-md-right">{{ __('isi') }}</label>
+
+    <div class="col-md-9">
+        {!! Form::textarea('isi', null,['class'=>" form-control",'required','autofocus']) !!} 
+
+        @error('isi')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
 
 
 
@@ -33,6 +44,10 @@
     </div>
 </div>
 
+
+
+
+
 <div class="form-group row">
     <label for="kategori_berita" class="col-md-3 col-form-label text-md-right">{{ __('kategori_artikel') }}</label>
 
@@ -40,22 +55,6 @@
         {!! Form::select('kategori_artikel_id', $kategori_artikel, null, ['class' => 'form-control']) !!}
 
         @error('kategori_artikel')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-    </div>
-</div>
-
-<div class="form-group row">
-    <label for="isi" class="col-md-3 col-form-label text-md-right">{{ __('isi') }}</label>
-
-    <div class="col-md-9">
-
-        {!! Form::textarea('isi',null, ['class'=>'form-control']); !!}
-
-
-        @error('isi')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>

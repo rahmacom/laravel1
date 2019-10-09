@@ -27,6 +27,10 @@ Route::post('my-Captcha','HomeController@myCaptchaPost')->name('myCaptcha.Post')
 
 Route::get('refresh_Captcha','HomeController@refresh_Captcha')->name('refresh_Captcha');
 
+Route::get('kategori_artikel/{id}/edit','KategoriArtikelController@edit')->name('kategori_artikel.edit');
+
+Route::get('kategori_artikel/{id}','Kaetgori_ArtikelController@update')->name('kategori_artikel.update');
+
 Route::resource('kategori_artikel','KategoriArtikelController');
 
 Route::resource('kategori_berita','KategoriBeritaController');
@@ -42,3 +46,5 @@ Route::resource('berita','BeritaController');
 Route::resource('galeri','GaleriController');
 
 Route::resource('pengumuman','PengumumanController');
+
+

@@ -8,9 +8,9 @@
                 <div class="card-header">{{ __('Create Kategori Artikel') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('kategori_artikel.store') }}">
+                    {!! Form::open(['route' => 'kategori_artikel.store', 'method' => 'POST']) !!}
                         @include('kategori_artikel.form')
-                    </form>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Create Artikel') }}</div>
+                <div class="card-header">{{ __('Edit Artikel') }}</div>
 
                 <div class="card-body">
                     {!! Form::model($artikel, ['route' => ['artikel.update', $artikel->id],'method' => 'patch'])!!} 

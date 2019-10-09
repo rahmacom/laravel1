@@ -1,11 +1,11 @@
+
 @csrf
 
 <div class="form-group row">
-    <label for="nama" class="col-md-4 col-form-label text-md-right">{{ __('nama') }}</label>
+    <label for="nama" class="col-md-3 col-form-label text-md-right">{{ __('nama') }}</label>
 
-    <div class="col-md-6">
-        <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}" required autofocus>
-
+    <div class="col-md-9">
+        {!! Form::text('nama', null,['class'=>" form-control",'required','autofocus']) !!} 
         @error('nama')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -14,12 +14,11 @@
     </div>
 </div>
 
-
 <div class="form-group row">
-    <label for="user id" class="col-md-4 col-form-label text-md-right">{{ __('user id') }}</label>
+    <label for="users_id" class="col-md-3 col-form-label text-md-right">{{ __('users_id') }}</label>
 
-    <div class="col-md-6">
-        <input id="users_id" type="hidden" class="form-control @error('users_id') is-invalid @enderror" name="users_id" value="{{ Auth::id() }}" required autofocus>
+    <div class="col-md-9">
+        <input id="users_id" type="hidden" class="form-control @error('users_id') is-invalid @enderror" name="users_id" value="{{ Auth::id() }}" required>
 
         @error('users_id')
             <span class="invalid-feedback" role="alert">
@@ -29,11 +28,10 @@
     </div>
 </div>
 
-
 <div class="form-group row mb-0">
-    <div class="col-md-8 offset-md-4">
+    <div class="col-md-9 offset-md-3">
         <button type="submit" class="btn btn-primary">
-            {{ ('Save Data') }}
+            {{ __('Save Data') }}
         </button>
 
         <a href="{!! route('kategori_artikel.index') !!}" class="btn btn-danger">
@@ -41,4 +39,11 @@
         </a>
     </div>
 </div>
+
+    <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
+
+    <script> 
+         CKEDITOR.replace( 'isi' ); 
+    </script>
+
 

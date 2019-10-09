@@ -58,7 +58,7 @@ class ArtikelController extends Controller
     {
         $artikel=artikel::find($id);
 
-        if (empty ($artike)) 
+        if (empty ($artikel)) 
         {
             return redirect (route('artikel.index'));
         }
@@ -75,13 +75,15 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         $artikel=artikel::find($id);
+        
+        $kategori_artikel = kategori_artikel::pluck('nama','id');
 
-        if (empty ($artike)) 
+        if (empty ($artikel)) 
         {
             return redirect (route('artikel.index'));
         }
 
-        return view('artikel.edit', compact('artikel'));
+        return view('artikel.edit', compact('artikel','kategori_artikel'));
     }
 
     /**
@@ -91,9 +93,12 @@ class ArtikelController extends Controller
      * @param  \App\artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, artikel $artikel)
+    public function update(Request $request, $id)
     {
-        //
+        $edit = $request->all();
+        artikel::find($id)->update($edit);
+
+        return redirect(route('artikel.index'));
     }
 
     /**

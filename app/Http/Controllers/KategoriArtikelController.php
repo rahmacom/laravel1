@@ -63,9 +63,18 @@ class KategoriArtikelController extends Controller
      * @param  \App\kategori_artikel  $kategori_artikel
      * @return \Illuminate\Http\Response
      */
-    public function edit(kategori_artikel $kategori_artikel)
+    public function edit($id)
     {
-        //
+        $kategori_artikel=kategori_artikel::find($id);
+        
+        $kategori_artikel = kategori_artikel::pluck('nama','id');
+
+        if (empty ($kategori_artikel)) 
+        {
+            return redirect (route('kategori_artikel.index'));
+        }
+
+        return view('kategori_artikel.edit', compact('kategori_artikel','kategori_artikel'));
     }
 
     /**
@@ -75,9 +84,12 @@ class KategoriArtikelController extends Controller
      * @param  \App\kategori_artikel  $kategori_artikel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, kategori_artikel $kategori_artikel)
+    public function update(Request $request, $id)
     {
-        //
+        $edit = $request->all();
+        kategori_artikel::find($id)->update($edit);
+
+        return redirect(route('kategori_artikel.index'));
     }
 
     /**

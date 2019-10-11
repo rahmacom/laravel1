@@ -4,7 +4,7 @@
     <label for="judul" class="col-md-3 col-form-label text-md-right">{{ __('judul') }}</label>
 
     <div class="col-md-9">
-        <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required autofocus>
+        {!! Form::text('judul', null, ['class' => 'form-control', 'value' => old('judul')]) !!}
 
         @error('judul')
             <span class="invalid-feedback" role="alert">
@@ -18,7 +18,7 @@
     <label for="isi" class="col-md-3 col-form-label text-md-right">{{ __('isi') }}</label>
 
     <div class="col-md-9">
-        <input id="isi" type="text" class="form-control @error('isi') is-invalid @enderror" name="isi" value="{{ old('isi') }}" required autofocus>
+        {!! Form::textarea('isi', null, ['class' => 'form-control', 'value' => old('isi')]) !!}
 
         @error('isi')
             <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
     <label for="berita" class="col-md-3 col-form-label text-md-right">{{ __('berita') }}</label>
 
     <div class="col-md-9">
-        {!! Form::select('berita_id', $kategori_berita, null, ['class' => 'form-control']) !!}
+        {!! Form::select('kategori_berita_id', $kategori_berita, null, ['class' => 'form-control']) !!}
 
         @error('berita')
             <span class="invalid-feedback" role="alert">

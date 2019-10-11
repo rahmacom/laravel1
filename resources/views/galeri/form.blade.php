@@ -19,7 +19,7 @@
 
     <div class="col-md-9">
 
-        {!! Form::textarea('keterangan',null, ['class'=>'form-control']); !!}
+        {!! Form::textarea('keterangan',null, ['class'=>'form-control', 'value' => old('keterangan')]) !!}
 
         @error('keterangan')
             <span class="invalid-feedback" role="alert">

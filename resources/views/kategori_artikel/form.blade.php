@@ -5,7 +5,7 @@
     <label for="nama" class="col-md-3 col-form-label text-md-right">{{ __('nama') }}</label>
 
     <div class="col-md-9">
-        {!! Form::text('nama', null,['class'=>" form-control",'required','autofocus']) !!} 
+        {!! Form::text('nama', null, ['class'=>'form-control', 'value' => old('nama'), 'required', 'autofocus']) !!}
         @error('nama')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -42,8 +42,8 @@
 
     <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
 
-    <script> 
-         CKEDITOR.replace( 'isi' ); 
+    <script>
+         CKEDITOR.replace( 'isi' );
     </script>
 
 

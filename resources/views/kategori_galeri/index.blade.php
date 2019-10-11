@@ -15,9 +15,7 @@
                         <table class="table table-stripped table-bordered">
                             <thead align="center" style="background-color: pink;">
                                 <th> ID </th>
-                                <th> NAMAL </th>
-                                <th> KETERANGAN </th>
-                                <th> PATH </th>
+                                <th> NAMA </th>
                                 <th> USERS ID </th>
                                 <th> CREATE </th>
                                 <th> UPDATE </th>
@@ -30,8 +28,6 @@
                             <tr>
                                 <td> {{ $item->id}} </td>
                                 <td> {{ $item->nama}} </td>
-                                <td> {{ $item->keterangan}} </td>
-                                <td> {{ $item->path }} </td>
                                 <td> {{ $item->users_id}} </td>
                                 <td> {{ $item->created_at->format('d/m/Y M:i:s')}} </td>
                                 <td> {{ $item->updated_at->format('d/m/Y M:i:s')}} </td>
@@ -39,6 +35,9 @@
                                     <div class="btn-group">
                                         <a class="btn btn-success" href="{{ route('kategori_galeri.show', $item->id) }}">view</a>
                                         <a class="btn btn-info" href="{{ route('kategori_galeri.edit', $item->id) }}">edit</a>
+                                        {!! Form::open(['route' => ['kategori_galeri.destroy', $item->id], 'method' => 'delete']) !!}
+                                        {!! Form::submit('delete', ['class' => 'btn btn-warning']) !!}
+                                        {!! Form::close() !!}
                                     </div>
                                 </td>
                             </tr>

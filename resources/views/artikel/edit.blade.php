@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Edit Artikel') }}</div>
 
                 <div class="card-body">
-                    {!! Form::model($artikel, ['route' => ['artikel.update', $artikel->id],'method' => 'patch'])!!} 
+                    {!! Form::model($artikel, ['route' => ['artikel.update', $artikel->id], 'method' => 'patch']) !!}
                         @include('artikel.form')
                     {!! Form::close() !!}
                 </div>

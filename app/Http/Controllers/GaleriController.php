@@ -16,7 +16,7 @@ class GaleriController extends Controller
      */
     public function index()
     {
-        $galeri =galeri::all();
+        $galeri=galeri::all();
 
         return view('galeri.index')->with('galeri',$galeri);
     }
@@ -75,7 +75,7 @@ class GaleriController extends Controller
         $kategori_galeri =galeri::pluck('nama','id');
 
 
-        return view('galeri.edit', compact('galeri','kategori_galeri'));
+        return view('galeri.edit', compact('galeri', 'kategori_galeri'));
     }
 
     /**
@@ -99,8 +99,10 @@ class GaleriController extends Controller
      * @param  \App\galeri  $galeri
      * @return \Illuminate\Http\Response
      */
-    public function destroy(galeri $galeri)
+    public function destroy($id)
     {
-        //
+        galeri::destroy($id);
+
+        return redirect(route('galeri.index'));
     }
 }

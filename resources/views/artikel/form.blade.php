@@ -1,16 +1,10 @@
-
 @csrf
 
 <div class="form-group row">
     <label for="judul" class="col-md-3 col-form-label text-md-right">{{ __('judul') }}</label>
 
-    <div class="col-md-9">
-        {!! Form::text('judul', null,['class'=>" form-control",'required','autofocus']) !!}
-        @error('judul')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
+    <div class="col-md-6">
+        {!! Form::text('judul', null,['class'=> 'form-control', 'value' => old('judul'), 'required', 'autofocus']) !!}
     </div>
 </div>
 
@@ -18,7 +12,7 @@
     <label for="isi" class="col-md-3 col-form-label text-md-right">{{ __('isi') }}</label>
 
     <div class="col-md-9">
-        {!! Form::textarea('isi', null,['class'=>" form-control",'required','autofocus']) !!}
+        {!! Form::textarea('isi', null,['class'=> 'form-control', 'value' => old('isi'), 'required', 'autofocus']) !!}
 
         @error('isi')
             <span class="invalid-feedback" role="alert">

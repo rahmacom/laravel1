@@ -70,8 +70,6 @@ class KategoriGaleriController extends Controller
     {
         $kategori_galeri=kategori_galeri::find($id);
 
-        //$kategori_berita = kategori_berita::pluck('nama','id');
-
         if (empty ($kategori_galeri))
         {
             return redirect (route('kategori_galeri.index'));
@@ -102,8 +100,10 @@ class KategoriGaleriController extends Controller
      * @param  \App\kategori_galeri  $kategori_galeri
      * @return \Illuminate\Http\Response
      */
-    public function destroy(kategori_galeri $kategori_galeri)
+    public function destroy($id)
     {
-        //
+        kategori_galeri::destroy($id);
+
+        return redirect(route('kategori_galeri.index'));
     }
 }

@@ -41,7 +41,6 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
-
         $input=$request->all();
 
         pengumuman::create($input);
@@ -68,9 +67,12 @@ class PengumumanController extends Controller
      * @param  \App\pengumuman  $pengumuman
      * @return \Illuminate\Http\Response
      */
-    public function edit(pengumuman $pengumuman)
+    public function edit($id)
     {
-        //
+        $pengumuman=pengumuman::find($id);
+        $kategori_pengumuman=kategori_pengumuman::pluck('nama','id');
+
+        return view('pengumuman.show', compact('pengumuman', 'kategori_pengumuman'));
     }
 
     /**
@@ -80,9 +82,12 @@ class PengumumanController extends Controller
      * @param  \App\pengumuman  $pengumuman
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, pengumuman $pengumuman)
+    public function update(Request $request, $id)
     {
-        //
+        $edit = $request->all();
+        pengumuman::find($id)->update($edit);
+
+        return redirect (route('pengumuman.index'));
     }
 
     /**
@@ -91,8 +96,10 @@ class PengumumanController extends Controller
      * @param  \App\pengumuman  $pengumuman
      * @return \Illuminate\Http\Response
      */
-    public function destroy(pengumuman $pengumuman)
+    public function destroy($id)
     {
-        //
+        pengumuman::destroy($id);
+
+        return redirect(route('pengumuman.index'));
     }
 }

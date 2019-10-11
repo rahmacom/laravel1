@@ -36,6 +36,9 @@
                                     <div class="btn-group">
                                         <a class="btn btn-success" href="{{ route('kategori_berita.show', $item->id) }}">view</a>
                                         <a class="btn btn-info" href="{{ route('kategori_berita.edit', $item->id) }}">edit</a>
+                                        {!! Form::open(['route' => ['kategori_berita.destroy', $item->id], 'method' => 'delete']) !!}
+                                        {!! Form::submit('delete', ['class' => 'btn btn-warning']) !!}
+                                        {!! Form::close() !!}
                                     </div>
                                 </td>
                             </tr>

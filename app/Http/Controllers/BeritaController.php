@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\berita;
 use App\kategori_berita;
 use Illuminate\Http\Request;
-
-
 class BeritaController extends Controller
 {
     /**
@@ -18,7 +16,7 @@ class BeritaController extends Controller
     {
         $berita=berita::all();
 
-        return view ('berita.index')->with('berita',$berita);
+        return view('berita.index', compact('berita'));
     }
 
     /**
@@ -28,8 +26,8 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        $kategori_berita = kategori_berita::pluck('nama', 'id');
-        return view('berita.create')->with('kategori_berita', $kategori_berita);
+        $kategori_berita=kategori_berita::pluck('nama', 'id');
+        return view('berita.create', compact('kategori_berita'));
     }
 
     /**
@@ -70,16 +68,16 @@ class BeritaController extends Controller
     {
         $berita=berita::find($id);
 
-        $kategori_berita =kategori_berita::pluck('nama','id');
+        $kategori_berita=kategori_berita::pluck('nama','id');
 
-        if (empty ($berita))
+        if (empty($berita))
         {
-            return redirect (route('berita.index'));
+            return redirect(route('berita.index'));
         }
         else
         {
             //return $berita;
-            return view('berita.edit', compact('berita','kategori_berita'));
+            return view('berita.edit', compact('berita', 'kategori_berita'));
         }
     }
 
@@ -104,8 +102,10 @@ class BeritaController extends Controller
      * @param  \App\berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function destroy(berita $berita)
+    public function destroy($id)
     {
-        //
+        berita::destroy($id);
+
+        return redirect(route('berita.index'));
     }
 }

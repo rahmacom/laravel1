@@ -24,18 +24,21 @@
                             </thead>
                         <tbody>
 
-@foreach ($kategori_artikel as $item)
+                        @foreach ($kategori_artikel as $item)
 
                             <tr>
-                                <td> {{ $item->id}} </td>
-                                <td> {{ $item->nama}} </td>
-                                <td> {{ $item->users_id}} </td>
+                                <td> {{ $item->id }} </td>
+                                <td> {{ $item->nama }} </td>
+                                <td> {{ $item->users_id }} </td>
                                 <td> {{ $item->created_at->format('d/m/Y M:i:s')}} </td>
                                 <td> {{ $item->updated_at->format('d/m/Y M:i:s')}} </td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-success" href="{{ route('kategori_artikel.show', $item->id) }}">view</a>
                                         <a class="btn btn-info" href="{{ route('kategori_artikel.edit', $item->id) }}">edit</a>
+                                        {!! Form::open(['route' => ['kategori_artikel.destroy', $item->id], 'method' => 'delete']) !!}
+                                        {!! Form::submit('delete', ['class' => 'btn btn-warning']) !!}
+                                        {!! Form::close() !!}
                                     </div>
                                 </td>
                             </tr>

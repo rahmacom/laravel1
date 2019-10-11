@@ -68,8 +68,6 @@ class KategoriBeritaController extends Controller
     {
         $kategori_berita=kategori_berita::find($id);
 
-        //$kategori_berita = kategori_berita::pluck('nama','id');
-
         if (empty ($kategori_berita))
         {
             return redirect (route('kategori_berita.index'));
@@ -100,8 +98,10 @@ class KategoriBeritaController extends Controller
      * @param  \App\kategori_berita  $kategori_berita
      * @return \Illuminate\Http\Response
      */
-    public function destroy(kategori_berita $kategori_berita)
+    public function destroy($id)
     {
-        //
+        kategori_berita::destroy($id);
+
+        return redirect(route('kategori_berita.index'));
     }
 }

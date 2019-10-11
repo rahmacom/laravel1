@@ -70,8 +70,6 @@ class KategoriPengumumanController extends Controller
     {
         $kategori_pengumuman=kategori_pengumuman::find($id);
 
-        $kategori_pengumuman = kategori_pengumuman::pluck('nama','id');
-
         if (empty ($kategori_pengumuman))
         {
             return redirect (route('kategori_pengumuman.index'));
@@ -103,8 +101,10 @@ class KategoriPengumumanController extends Controller
      * @param  \App\kategori_pengumuman  $kategori_pengumuman
      * @return \Illuminate\Http\Response
      */
-    public function destroy(kategori_pengumuman $kategori_pengumuman)
+    public function destroy($id)
     {
-        //
+        kategori_pengumuman::destroy($id);
+
+        return redirect(route('kategori_pengumuman.index'));
     }
 }

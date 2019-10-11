@@ -19,17 +19,6 @@
                     </div>
 
                     <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-left">keterangan</label>
-                            <label for="name" class="col-md-6 col-form-label text-md-left">{{ $kategori_galeri->keterangan }}</label>
-                    </div>
-
-                    <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-left">path</label>
-                            <label for="name" class="col-md-6 col-form-label text-md-left">{{ $kategori_galeri->path }}</label>
-                    </div>
-
-
-                    <div class="form-group row">
                             <label for="users_id" class="col-md-4 col-form-label text-md-left">users_id</label>
                             <label for="users_id" class="col-md-6 col-form-label text-md-left">{{ $kategori_galeri->users_id }}</label>
                     </div>

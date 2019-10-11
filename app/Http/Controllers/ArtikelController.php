@@ -16,10 +16,9 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $artikel=artikel::all();
+        $artikel = artikel::all();
 
-
-        return view('artikel.index')->with('artikel',$artikel);
+        return view('artikel.index')->with('artikel', $artikel);
     }
 
     /**
@@ -29,8 +28,9 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        $kategori_artikel = kategori_artikel::pluck('nama','id');
-        return view('artikel.create')->with('kategori_artikel', $kategori_artikel);
+        $kategori_artikel=kategori_artikel::pluck('nama','id');
+
+        return view('artikel.create', compact('kategori_artikel'));
     }
 
     /**
@@ -58,12 +58,11 @@ class ArtikelController extends Controller
     {
         $artikel=artikel::find($id);
 
-        if (empty ($artikel))
-        {
-            return redirect (route('artikel.index'));
+        if (empty($artikel)) {
+            return redirect(route('artikel.index'));
+        } else {
+            return view('artikel.show', compact('artikel'));
         }
-
-        return view('artikel.show', compact('artikel'));
     }
 
     /**
@@ -78,12 +77,12 @@ class ArtikelController extends Controller
 
         $kategori_artikel = kategori_artikel::pluck('nama','id');
 
-        if (empty ($artikel))
+        if (empty($artikel))
         {
             return redirect (route('artikel.index'));
+        } else {
+            return view('artikel.edit', compact('artikel', 'kategori_artikel'));
         }
-
-        return view('artikel.edit', compact('artikel','kategori_artikel'));
     }
 
     /**
@@ -95,7 +94,7 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $edit = $request->all();
+        $edit = $request->except('_method', '_token');
         artikel::find($id)->update($edit);
 
         return redirect(route('artikel.index'));
@@ -107,8 +106,10 @@ class ArtikelController extends Controller
      * @param  \App\artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(artikel $artikel)
+    public function destroy($id)
     {
-        //
+        artikel::destroy($id);
+
+        return redirect(route('artikel.index'));
     }
 }

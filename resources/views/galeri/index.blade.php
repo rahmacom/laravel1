@@ -30,7 +30,7 @@
                 <tr>
                     <td> {{ $item->id}} </td>
                     <td> {{ $item->nama}} </td>
-                    <td> {{ $item->keterangan}} </td>
+                    <td> {!! $item->keterangan!!} </td>
                     <td> {{ $item->path }} </td>
                     <td> {{ $item->users_id}} </td>
                     <td> {{ $item->created_at->format('d/m/Y M:i:s')}} </td>
@@ -39,6 +39,9 @@
                         <div class="btn-group">
                             <a class="btn btn-success" href="{{ route('galeri.show', $item->id) }}">view</a>
                             <a class="btn btn-info" href="{{ route('galeri.edit', $item->id) }}">edit</a>
+                            {!! Form::open(['route' => ['galeri.destroy', $item->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('delete', ['class' => 'btn btn-warning']) !!}
+                            {!! Form::close() !!}
                         </div>
                     </td>
                 </tr>

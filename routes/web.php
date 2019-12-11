@@ -42,3 +42,7 @@ Route::resource('berita','BeritaController');
 Route::resource('galeri','GaleriController');
 
 Route::resource('pengumuman','PengumumanController');
+
+Route::resource('prodi','TableProdiController');
+
+Route::resource('mahasiswa','TableMahasiswaController');
